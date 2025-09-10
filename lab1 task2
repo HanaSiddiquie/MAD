@@ -1,0 +1,59 @@
+//lab Task 2
+
+function SolveThis(obj) {
+    let out = {};
+
+    for (let op in obj) {
+        let vals = obj[op];
+
+        switch (op) {
+            case "sum":
+                out[op] = vals.reduce((a, b) => a + b, 0);
+                break;
+
+            case "max":
+                out[op] = Math.max(...vals);
+                break;
+
+            case "min":
+                out[op] = Math.min(...vals);
+                break;
+
+            case "abs":
+                out[op] = vals.map(n => Math.abs(n));
+                break;
+
+            case "round":
+                out[op] = vals.map(n => Math.round(n));
+                break;
+
+            case "ceil":
+                out[op] = vals.map(n => Math.ceil(n));
+                break;
+
+            case "floor":
+                out[op] = vals.map(n => Math.floor(n));
+                break;
+
+            case "random":
+                out[op] = Math.random().toFixed(3); 
+                break;
+
+            default:
+                out[op] = "⚠ Unsupported operation";
+        }
+    }
+    return out;
+}
+
+// Test
+console.log(SolveThis({
+    sum: [2, 5, 3],
+    max: [1, 9, 6, 4],
+    min: [7, 3, 8, 2],
+    abs: [-4, 6, -9],
+    round: [2.4, 7.8],
+    ceil: [2.2, 4.6],
+    floor: [5.9, 7.1],
+    random: []
+}));

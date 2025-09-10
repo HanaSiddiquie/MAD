@@ -1,0 +1,26 @@
+
+
+// Lab Task 1 
+
+const add = (x, y) => 
+    (x === undefined || y === undefined) ? "Error: Missing input!" : x + y;
+
+const subtract = (x = 0, y = 0) => x - y;
+
+const multiply = (...nums) => nums.reduce((prod, n) => prod * n, 1);
+
+function divide() {
+    if (arguments.length < 2) return "Error: Need at least 2 values";
+    let ans = arguments[0];
+    for (let i = 1; i < arguments.length; i++) ans /= arguments[i];
+    return ans;
+}
+
+// Test
+console.log("Add:", add(8, 4));
+console.log("Subtract:", subtract(10));        
+console.log("Multiply:", multiply(2, 3, 5));    
+console.log("Divide:", divide(120, 2, 3));      
+
+
+
